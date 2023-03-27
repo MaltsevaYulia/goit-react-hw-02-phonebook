@@ -50,20 +50,13 @@ export class App extends Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
     return (
-      <>
-      <div className={css.container}>
+      <div className={(css.container)}>
         <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
+        <h2>Contacts</h2>
+        <Filter value={this.state.filter} changeFilter={this.changeFilter} />
+        <ContactList contacts={visibleContacts} onDelete={this.deleteContact} />
       </div>
-      <div className={css.container}>
-          <h2>Contacts</h2>
-          <Filter value={this.state.filter} changeFilter={this.changeFilter} />
-          <ContactList
-            contacts={visibleContacts}
-            onDelete={this.deleteContact}
-          />
-        </div>
-        </>
     );
   }
 }
